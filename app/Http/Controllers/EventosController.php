@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Models\Eventos;
+use App\Models\Eventos;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 
@@ -24,7 +24,7 @@ public function MostrarCadastroEvento(){
 // para salvar os registros na tabela eventos
 
 public function CadastrarEventos(Request $request){
-    $registros - $request->Validate([
+    $registros = $request->Validate([
         'nomeEvento'=>'string|required',
         'dataEvento'=>'date|required',
         'localEvento'=>'string|required',
@@ -41,7 +41,7 @@ public function destroy(Eventos $id){
     }
     //para alterar os registroa na tabela de eventos
     public function Update( Eventos $id, Request $request){
-        $registros - $request->Validate([
+        $registros = $request->Validate([
             'nomeEvento'=>'string|required',
             'dataEvento'=>'date|required',
             'localEvento'=>'string|required',
@@ -60,7 +60,7 @@ public function destroy(Eventos $id){
 
     //para buscar os eventos por nome
     public function MostraEventoNome(Request $request){
-        $registros = eventos::query();
+        $registros = Eventos::query();
         $registros->when($request->nomeEvento,function($query,$valor){
             $query->where('nomeEvento','like','%'.$valor.'%');
         });
@@ -68,5 +68,5 @@ public function destroy(Eventos $id){
         return View ('listaEventos',['registrosEvento'=>$todosRegistros]);
 
     }
-    
+
 }
