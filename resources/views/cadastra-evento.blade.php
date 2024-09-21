@@ -1,7 +1,5 @@
 @extends ('layout')
 @section('content')
  
-<figure>
-    <img src=""/>
-</figure>
+<h1> Está é a pagina do cadastro evento</h1>
 @endsection

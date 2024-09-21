@@ -18,7 +18,7 @@ class EventosController extends Controller
 
 // para mostrar tela de cadastro de eventos
 public function MostrarCadastroEvento(){
-    return View ('cadastarevento');
+    return View ('cadastra-evento');
 }
 
 // para salvar os registros na tabela eventos
