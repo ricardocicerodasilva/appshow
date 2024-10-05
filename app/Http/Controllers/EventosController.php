@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Eventos;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Validator;
 
 class EventosController extends Controller
 {
@@ -24,7 +23,7 @@ public function MostrarCadastroEvento(){
 // para salvar os registros na tabela eventos
 
 public function CadastrarEventos(Request $request){
-    $registros = $request->Validate([
+    $registros = $request->validate([
         'nomeEvento'=>'string|required',
         'dataEvento'=>'date|required',
         'localEvento'=>'string|required',
